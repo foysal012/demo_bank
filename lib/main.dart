@@ -1,9 +1,12 @@
+import 'package:demo_bank/presentation/screen/login_screen.dart';
 import 'package:demo_bank/services/notification_services.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'firebase_options.dart';
+import 'presentation/screen/bottom_nav_bar/bottom_nav_bar_screen.dart';
 import 'presentation/screen/home_screen.dart';
+import 'presentation/screen/signup_screen.dart';
 
 // ⬇️ Top-level background handler (class-এর বাইরে)
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
@@ -39,8 +42,7 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       // home: SplashScreen(),
-      // home: LoginScreen(),
-      home: HomeScreen(),
+      home: BottomNavBarScreen()
     );
   }
 }
