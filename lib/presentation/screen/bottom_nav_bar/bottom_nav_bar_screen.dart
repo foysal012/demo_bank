@@ -1,7 +1,7 @@
 import 'package:demo_bank/presentation/screen/home_screen.dart';
-import 'package:demo_bank/presentation/screen/login_screen.dart';
-import 'package:demo_bank/presentation/screen/signup_screen.dart';
-import 'package:demo_bank/presentation/screen/splash_screen.dart';
+import 'package:demo_bank/presentation/screen/my_card_screen.dart';
+import 'package:demo_bank/presentation/screen/settings_screen.dart';
+import 'package:demo_bank/presentation/screen/statistics_screen.dart';
 import 'package:demo_bank/resources/app_color.dart';
 import 'package:flutter/material.dart';
 
@@ -16,9 +16,9 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
 
   List<Widget> pages = [
     HomeScreen(),
-    LoginScreen(),
-    SignupScreen(),
-    SplashScreen()
+    MyCardScreen(),
+    StatisticsScreen(),
+    SettingsScreen()
   ];
 
   int currentIndex = 0;
