@@ -2,6 +2,8 @@ import 'package:demo_bank/resources/app_color.dart';
 import 'package:demo_bank/resources/app_style.dart';
 import 'package:flutter/material.dart';
 
+import '../widget/custom_profile_tile_widget.dart';
+
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
 
@@ -15,10 +17,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return Scaffold(
 
       appBar: AppBar(
-        leading: CircleAvatar(
-          radius: 30.0,
-          backgroundColor: Colors.black38,
-          child: Icon(Icons.arrow_back_ios_new),
+        actionsPadding: EdgeInsets.only(right: 10.0),
+        leadingWidth: 40,
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 10.0),
+          child: CircleAvatar(
+            radius: 20.0,
+            backgroundColor: Colors.black26,
+            child: Icon(Icons.arrow_back_ios_new),
+          ),
         ),
 
         centerTitle: true,
@@ -32,8 +39,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
         actions: [
           CircleAvatar(
-            radius: 30.0,
-            backgroundColor: Colors.black38,
+            radius: 20.0,
+            backgroundColor: Colors.black26,
             child: Icon(Icons.logout),
           ),
         ],
@@ -42,25 +49,82 @@ class _SettingsScreenState extends State<SettingsScreen> {
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 10.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('General',
                style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: AppColors.appBlack
+                  color: Colors.black38
               ),
             ),
             AppStyles.appGap(10.0),
 
-            ListTile(
-              leading: Text('Language',
-                style : TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.appBlack
-                ),
+            CustomProfileTileWidget(
+              onTap: (){
+
+              },
+              title: 'Language',
+            ),
+            AppStyles.appGap(5.0),
+
+            CustomProfileTileWidget(
+              onTap: (){
+
+              },
+              title: 'My Profile',
+            ),
+            AppStyles.appGap(5.0),
+
+            CustomProfileTileWidget(
+              onTap: (){
+
+              },
+              title: 'Contract us',
+            ),
+            AppStyles.appGap(10.0),
+
+            Text('Security',
+              style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black38
               ),
-            )
+            ),
+            AppStyles.appGap(10.0),
+
+            CustomProfileTileWidget(
+              onTap: (){
+
+              },
+              title: 'Change Password',
+            ),
+            AppStyles.appGap(5.0),
+
+            CustomProfileTileWidget(
+              onTap: (){
+
+              },
+              title: 'Privacy Policies',
+            ),
+            AppStyles.appGap(10.0),
+
+            Text('Choose what data you share with us',
+              style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black38
+              ),
+            ),
+            AppStyles.appGap(10.0),
+
+            CustomProfileTileWidget(
+              onTap: (){
+
+              },
+              title: 'Biometrics',
+            ),
+            AppStyles.appGap(5.0),
           ],
         ),
       ),
