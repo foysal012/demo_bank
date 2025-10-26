@@ -13,10 +13,12 @@ class MyCardScreen extends StatefulWidget {
 class _MyCardScreenState extends State<MyCardScreen> {
 
   List<PaymentModel> paymentList = [
-    PaymentModel(imgIcon: 'asset/images/apple.png', title: 'Apple Store', subTitle: 'Entertainment', amount: '300.0'),
-    PaymentModel(imgIcon: 'asset/images/spotify.jpeg', title: 'Spotify', subTitle: 'Music', amount: '250.0'),
+    PaymentModel(imgIcon: 'asset/images/apple.jpeg', title: 'Apple Store', subTitle: 'Entertainment', amount: '300.0'),
+    PaymentModel(imgIcon: 'asset/images/spotify.png', title: 'Spotify', subTitle: 'Music', amount: '250.0'),
     PaymentModel(imgIcon: 'asset/images/cart.jpeg', title: 'Grocery', subTitle: 'Shopping', amount: '400.0'),
   ];
+
+  double initialValue = 10.0;
 
   @override
   Widget build(BuildContext context) {
@@ -54,52 +56,113 @@ class _MyCardScreenState extends State<MyCardScreen> {
 
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 10.0),
-        child: Column(
-          children: [
-            Container(
-              height: 230,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15.0),
-                color: Colors.purple
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                height: 230,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15.0),
+                  color: Colors.purple
+                ),
               ),
-            ),
-            AppStyles.appGap(10.0),
-            
-            ListView.builder(
-                shrinkWrap: true,
-                itemCount: paymentList.length,
-                itemBuilder: (context, index) {
-                  final dataInfo = paymentList[index];
-                  return ListTile(
-                    leading: Image.asset('${dataInfo.imgIcon}', height: 100, width: 100),
-                    
-                    title: Text('${dataInfo.title}',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: AppColors.appBlack
+              AppStyles.appGap(10.0),
+              
+              ListView.builder(
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: paymentList.length,
+                  itemBuilder: (context, index) {
+                    final dataInfo = paymentList[index];
+                    return ListTile(
+                      leading: Container(
+                        height: 100,
+                        width: 100,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(image: AssetImage('${dataInfo.imgIcon}'))
+                        ),
                       ),
-                    ),
-                    subtitle: Text('${dataInfo.subTitle}',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black38
+                      
+                      title: Text('${dataInfo.title}',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.appBlack
+                        ),
                       ),
-                    ),
-                    
-                    trailing: Text('-${dataInfo.amount}',
-                      style: TextStyle(
+                      subtitle: Text('${dataInfo.subTitle}',
+                        style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
-                          color: AppColors.appRed
+                          color: Colors.black38
+                        ),
                       ),
+                      
+                      trailing: Text('-${dataInfo.amount}',
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: AppColors.appRed
+                        ),
+                      ),
+                    );
+                      
+                  },
+              ),
+              AppStyles.appGap(20.0),
+
+              Text('Monthly spending limit',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold
+                ),
+              ),
+              AppStyles.appGap(10.0),
+
+              Container(
+                height: 180,
+                padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15.0),
+                  color: Color(0xffF4F4F4)
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Amount:\$ 85696.00'),
+                    Slider(
+                        min: 0,
+                        max: 20,
+                        value: initialValue,
+                        divisions: 20,
+                        activeColor: Color(0xff0066FF),
+                        inactiveColor: Color(0xffFFFFFF),
+                        thumbColor: Color(0xffFFFFFF),
+                        label: initialValue.toString(),
+                        overlayColor: WidgetStateColor.resolveWith((states) {
+                          return Color(0xff9ebded);
+                        },),
+                        onChanged: (value) {
+                          setState(() {
+                            initialValue = value;
+                          });
+                        },
                     ),
-                  );
-                    
-                },
-            )
-          ],
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('\$ 0.00'),
+                          Text('\$ 10000.00')
+                        ]
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
