@@ -3,6 +3,7 @@ import 'package:demo_bank/resources/app_style.dart';
 import 'package:flutter/material.dart';
 
 import '../widget/custom_profile_tile_widget.dart';
+import 'my_profile_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -70,7 +71,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
             CustomProfileTileWidget(
               onTap: (){
-
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyProfileScreen()));
               },
               title: 'My Profile',
             ),

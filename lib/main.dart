@@ -4,6 +4,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'firebase_options.dart';
 import 'presentation/screen/bottom_nav_bar/bottom_nav_bar_screen.dart';
+import 'presentation/screen/my_profile_screen.dart';
 
 // ⬇️ Top-level background handler (class-এর বাইরে)
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
