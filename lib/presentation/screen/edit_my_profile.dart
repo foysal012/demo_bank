@@ -162,7 +162,7 @@ class _EditMyProfileState extends State<EditMyProfile> {
             AppStyles.appGap(5.0),
 
             CustomTextField(
-                textController: dateTextController..text = '${DateFormat.yMd().format(DateTime.now())}',
+                textController: dateTextController..text = DateFormat.yMd().format(DateTime.now()),
                 prefixIconData: Icon(Icons.call_outlined),
                 hintText: 'Enter Date'
             ),

@@ -5,7 +5,6 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 
 import '../../model/payment_model.dart';
 import '../../resources/app_color.dart';
-import 'edit_my_profile.dart';
 
 class PaymentPreferenceScreen extends StatefulWidget {
   const PaymentPreferenceScreen({super.key});

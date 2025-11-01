@@ -2,6 +2,7 @@ import 'package:demo_bank/model/payment_model.dart';
 import 'package:demo_bank/resources/app_style.dart';
 import 'package:flutter/material.dart';
 import '../../resources/app_color.dart';
+import '../widget/custom_master_card.dart';
 
 class MyCardScreen extends StatefulWidget {
   const MyCardScreen({super.key});
@@ -60,13 +61,7 @@ class _MyCardScreenState extends State<MyCardScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                height: 230,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15.0),
-                  color: Colors.purple
-                ),
-              ),
+              CustomMasterCard(),
               AppStyles.appGap(10.0),
               
               ListView.builder(
