@@ -3,7 +3,10 @@ import 'package:demo_bank/resources/app_style.dart';
 import 'package:flutter/material.dart';
 
 import '../widget/custom_profile_tile_widget.dart';
+import 'change_password_screen.dart';
+import 'contract_us_screen.dart';
 import 'my_profile_screen.dart';
+import 'privacy_policy_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -79,7 +82,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
             CustomProfileTileWidget(
               onTap: (){
-
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => ContractUsScreen()));
               },
               title: 'Contract us',
             ),
@@ -96,7 +99,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
             CustomProfileTileWidget(
               onTap: (){
-
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => ChangePasswordScreen()));
               },
               title: 'Change Password',
             ),
@@ -104,7 +107,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
             CustomProfileTileWidget(
               onTap: (){
-
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => PrivacyPolicyScreen()));
               },
               title: 'Privacy Policies',
             ),
