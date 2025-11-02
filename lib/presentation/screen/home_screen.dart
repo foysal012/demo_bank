@@ -1,9 +1,10 @@
 import 'package:demo_bank/presentation/screen/transection_history_screen.dart';
 import 'package:flutter/material.dart';
-
 import '../../model/payment_model.dart';
 import '../../resources/app_color.dart';
 import '../../resources/app_style.dart';
+import '../widget/custom_home_circle_widget.dart';
+import '../widget/custom_master_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -85,13 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Container(
-                height: 230,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15.0),
-                    color: Colors.purple
-                ),
-              ),
+              CustomMasterCard(),
               AppStyles.appGap(10.0),
               
               Row(
@@ -182,27 +177,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-    );
-  }
-}
-
-class CustomHomeCircleWidget extends StatelessWidget {
-  const CustomHomeCircleWidget({
-    super.key,
-    required this.iconData
-  });
-  final IconData iconData;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 60,
-      width: 60,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: Colors.black38
-      ),
-      child: Icon(iconData, color: Colors.white),
     );
   }
 }

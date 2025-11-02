@@ -107,7 +107,7 @@ class _AddNewCardScreenState extends State<AddNewCardScreen> {
                       AppStyles.appGap(5.0),
 
                       CustomTextField(
-                          textController: expiryDateTextController..text = '${DateFormat.yMd().format(DateTime.now())}',
+                          textController: expiryDateTextController..text = DateFormat.yMd().format(DateTime.now()),
                           prefixIconData: Icon(Icons.date_range),
                           hintText: 'Enter Expiry Date'
                       ),

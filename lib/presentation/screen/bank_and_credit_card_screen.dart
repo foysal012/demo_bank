@@ -2,6 +2,7 @@ import 'package:demo_bank/presentation/widget/custom_primary_button.dart';
 import 'package:flutter/material.dart';
 import '../../resources/app_color.dart';
 import '../../resources/app_style.dart';
+import '../widget/custom_master_card.dart';
 import 'add_new_card_screen.dart';
 
 class BankAndCreditCardScreen extends StatefulWidget {
@@ -49,23 +50,11 @@ class _BankAndCreditCardScreenState extends State<BankAndCreditCardScreen> {
         ),
         child: Column(
           children: [
-            Container(
-              height: 230,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15.0),
-                  color: Colors.purple
-              ),
-            ),
-            AppStyles.appGap(10.0),
+           CustomMasterCard(),
+           AppStyles.appGap(10.0),
 
-            Container(
-              height: 230,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15.0),
-                  color: Colors.purple
-              ),
-            ),
-            AppStyles.appGap(10.0),
+           CustomMasterCard(),
+           AppStyles.appGap(10.0),
           ],
         ),
       ),

@@ -1,4 +1,3 @@
-import 'package:demo_bank/presentation/screen/transection_history_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../resources/app_color.dart';
