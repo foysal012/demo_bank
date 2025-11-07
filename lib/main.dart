@@ -1,3 +1,5 @@
+import 'package:demo_bank/presentation/screen/login_screen.dart';
+import 'package:demo_bank/presentation/screen/splash_screen.dart';
 import 'package:demo_bank/services/notification_services.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -40,8 +42,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       debugShowCheckedModeBanner: false,
-      // home: SplashScreen(),
-      home: BottomNavBarScreen(),
+      home: SplashScreen(),
+      // home: BottomNavBarScreen(),
+      // home: LoginScreen(),
       // home: IntroductionScreen(),
       // home: LanguageScreen()
     );

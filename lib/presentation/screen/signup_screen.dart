@@ -1,6 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:demo_bank/presentation/screen/login_screen.dart';
 import 'package:demo_bank/presentation/widget/custom_text_field.dart';
 import 'package:demo_bank/resources/app_color.dart';
 import 'package:demo_bank/resources/app_style.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -18,169 +22,225 @@ class _SignupScreenState extends State<SignupScreen> {
   final passwordController = TextEditingController();
 
   bool isObSecureText = true;
+  final formKey = GlobalKey<FormState>();
+  bool isButtonLoading = false;
+
+  void signUp({required String email, required String password}) async{
+    isButtonLoading = true;
+    setState(() {});
+    try{
+      final response = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: email,
+          password: password,
+      );
+
+      debugPrint("Output: ${response}");
+
+      await FirebaseFirestore.instance.collection('users').doc(response.user!.uid).set({
+        'uid': response.user!.uid,
+        'name': nameController.text.trim(),
+        'email': emailController.text.trim(),
+        'phone': phoneController.text.trim(),
+        'createdAt': Timestamp.now()
+      });
+
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Successfully Account Created')));
+
+      await Future.delayed(Duration(seconds: 2), () {
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginScreen()));
+      });
+    } on FirebaseAuthException catch (e) {
+      String message = 'An error occurred';
+      if (e.code == 'user-not-found') {
+        message = 'No user found for that email.';
+      } else if (e.code == 'wrong-password') {
+        message = 'Wrong password provided.';
+      }
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('$message')));
+    } catch(e){
+      debugPrint('Exception: ${e.toString()}');
+    } finally{
+      isButtonLoading = false;
+      setState(() {
+
+      });
+    }
+  }
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    phoneController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.sizeOf(context).height;
     final width = MediaQuery.sizeOf(context).width;
     return Scaffold(
-      // appBar: AppBar(
-      //   leadingWidth: 80,
-      //   leading: GestureDetector(
-      //     onTap: (){
-      //       Navigator.of(context);
-      //     },
-      //     child: Container(
-      //         padding: EdgeInsets.all(10.0),
-      //         margin: EdgeInsets.all(10.0),
-      //         decoration: BoxDecoration(
-      //             color: Colors.black26,
-      //             shape: BoxShape.circle
-      //         ),
-      //         child: Center(child: Icon(Icons.arrow_back_ios_new_outlined, color: Colors.black))
-      //     ),
-      //   )
-      // ),
 
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: height*0.08,
-            ),
-
-            Text('Sign Up',
-              style: TextStyle(
-                  fontSize: 28,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold
+        child: Form(
+          key: formKey,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: height*0.08,
               ),
-            ),
-            SizedBox(
-              height: height*0.08,
-            ),
 
-            Text('Full Name',
-              style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.black38,
-                  fontWeight: FontWeight.w500
-              ),
-            ),
-            AppStyles.appGap(5.0),
-
-            CustomTextField(
-              textController: emailController,
-              hintText: 'Foysal Joarder',
-              prefixIconData: Icon(Icons.drive_file_rename_outline, color: AppColors.primaryColor),
-            ),
-            AppStyles.appGap(10.0),
-
-            Text('Phone Number',
-              style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.black38,
-                  fontWeight: FontWeight.w500
-              ),
-            ),
-            AppStyles.appGap(5.0),
-
-            CustomTextField(
-              textController: emailController,
-              hintText: '+8801745889632',
-              prefixIconData: Icon(Icons.call_outlined, color: AppColors.primaryColor),
-            ),
-            AppStyles.appGap(10.0),
-
-            Text('Email Address',
-              style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.black38,
-                  fontWeight: FontWeight.w500
-              ),
-            ),
-            AppStyles.appGap(5.0),
-
-            CustomTextField(
-              textController: emailController,
-              hintText: 'Email address',
-              prefixIconData: Icon(Icons.email_outlined, color: AppColors.primaryColor),
-            ),
-            AppStyles.appGap(10.0),
-
-            Text('Password',
-              style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.black38,
-                  fontWeight: FontWeight.w500
-              ),
-            ),
-            AppStyles.appGap(5.0),
-
-            CustomTextField(
-              textController: passwordController,
-              hintText: 'Password',
-              prefixIconData: Icon(Icons.key, color: AppColors.primaryColor),
-              suffixIconData: IconButton(
-                  onPressed: (){
-                    setState(() {
-                      isObSecureText =! isObSecureText;
-                    });
-                  },
-                  icon: Icon(isObSecureText?Icons.visibility_off:Icons.visibility)
-              ),
-              isObSecureText: isObSecureText,
-            ),
-            AppStyles.appGap(30.0),
-
-            MaterialButton(
-              minWidth: width,
-              height: 48,
-              color: AppColors.primaryColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadiusGeometry.circular(10.0),
-              ),
-              onPressed: (){
-
-              },
-              child: Text('Sign Up',
+              Text('Sign Up',
                 style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.white
+                    fontSize: 28,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold
                 ),
               ),
-            ),
-            AppStyles.appGap(30.0),
+              SizedBox(
+                height: height*0.08,
+              ),
 
-            Center(
-              child: GestureDetector(
-                onTap: (){
+              Text('Full Name',
+                style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black38,
+                    fontWeight: FontWeight.w500
+                ),
+              ),
+              AppStyles.appGap(5.0),
 
+              CustomTextField(
+                textController: nameController,
+                hintText: 'Foysal Joarder',
+                prefixIconData: Icon(Icons.drive_file_rename_outline, color: AppColors.primaryColor),
+              ),
+              AppStyles.appGap(10.0),
+
+              Text('Phone Number',
+                style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black38,
+                    fontWeight: FontWeight.w500
+                ),
+              ),
+              AppStyles.appGap(5.0),
+
+              CustomTextField(
+                textController: phoneController,
+                hintText: '+8801745889632',
+                prefixIconData: Icon(Icons.call_outlined, color: AppColors.primaryColor),
+              ),
+              AppStyles.appGap(10.0),
+
+              Text('Email Address',
+                style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black38,
+                    fontWeight: FontWeight.w500
+                ),
+              ),
+              AppStyles.appGap(5.0),
+
+              CustomTextField(
+                textController: emailController,
+                hintText: 'Email address',
+                prefixIconData: Icon(Icons.email_outlined, color: AppColors.primaryColor),
+                validator: (value) => value.toString().isEmpty? 'Email is required':null,
+              ),
+              AppStyles.appGap(10.0),
+
+              Text('Password',
+                style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black38,
+                    fontWeight: FontWeight.w500
+                ),
+              ),
+              AppStyles.appGap(5.0),
+
+              CustomTextField(
+                textController: passwordController,
+                hintText: 'Password',
+                prefixIconData: Icon(Icons.key, color: AppColors.primaryColor),
+                suffixIconData: IconButton(
+                    onPressed: (){
+                      setState(() {
+                        isObSecureText =! isObSecureText;
+                      });
+                    },
+                    icon: Icon(isObSecureText?Icons.visibility_off:Icons.visibility)
+                ),
+                isObSecureText: isObSecureText,
+                validator: (value) {
+                  if(value.toString().isEmpty){
+                    return 'Password is required';
+                  } else if(value.toString().length>12){
+                    return 'Too long';
+                  } else if(value.toString().length<6){
+                    return 'Too short';
+                  } else {
+                    return null;
+                  }
+                }
+              ),
+              AppStyles.appGap(30.0),
+
+              MaterialButton(
+                minWidth: width,
+                height: 48,
+                color: AppColors.primaryColor,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadiusGeometry.circular(10.0),
+                ),
+                onPressed: (){
+                  if(formKey.currentState!.validate()){
+                    signUp(
+                        email: emailController.text,
+                        password: passwordController.text
+                    );
+                  }
                 },
-                child: RichText(
-                  text: TextSpan(
-                    text: 'Already have an account.',
-                    style: TextStyle(
-                      fontSize: 14.0,
-                      color: Colors.black38,
-                    ),
-                    children: <TextSpan>[
-                      TextSpan(
-                        text: 'Sign In',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: AppColors.primaryColor,
-                        ),
-                      )
-                    ],
+                child: isButtonLoading? CupertinoActivityIndicator(radius: 15.0, color: Colors.white) : Text('Sign Up',
+                  style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.white
                   ),
                 ),
               ),
-            )
+              AppStyles.appGap(30.0),
 
-          ],
+              Center(
+                child: GestureDetector(
+                  onTap: (){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginScreen()));
+                  },
+                  child: RichText(
+                    text: TextSpan(
+                      text: 'Already have an account.',
+                      style: TextStyle(
+                        fontSize: 14.0,
+                        color: Colors.black38,
+                      ),
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: 'Sign In',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: AppColors.primaryColor,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              )
+
+            ],
+          ),
         ),
       ),
 

@@ -1,5 +1,7 @@
+import 'package:demo_bank/presentation/screen/login_screen.dart';
 import 'package:demo_bank/resources/app_color.dart';
 import 'package:demo_bank/resources/app_style.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../widget/custom_profile_tile_widget.dart';
@@ -44,10 +46,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ),
 
         actions: [
-          CircleAvatar(
-            radius: 20.0,
-            backgroundColor: Colors.black26,
-            child: Icon(Icons.logout),
+          GestureDetector(
+            onTap: () async{
+              await FirebaseAuth.instance.signOut();
+              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => LoginScreen()), (route) => false,);
+            },
+            child: CircleAvatar(
+              radius: 20.0,
+              backgroundColor: Colors.black26,
+              child: Icon(Icons.logout),
+            ),
           ),
         ],
       ),
