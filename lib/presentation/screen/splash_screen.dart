@@ -1,3 +1,6 @@
+import 'package:demo_bank/presentation/screen/bottom_nav_bar/bottom_nav_bar_screen.dart';
+import 'package:demo_bank/presentation/screen/login_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
@@ -9,6 +12,35 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+
+  @override
+  void initState() {
+    super.initState();
+    checkUser();
+  }
+
+  Future<void> checkUser() async{
+    await Future.delayed(Duration(seconds: 2));
+    User? user = FirebaseAuth.instance.currentUser;
+
+    debugPrint('${user?.displayName}');
+    debugPrint('${user?.emailVerified}');
+    debugPrint('${user?.email}');
+    debugPrint('${user?.isAnonymous}');
+    debugPrint('${user?.metadata}');
+    debugPrint('${user?.phoneNumber}');
+    debugPrint('${user?.uid}');
+    debugPrint('${user?.tenantId}');
+    debugPrint('${user?.refreshToken}');
+    debugPrint('${user?.photoURL}');
+
+    if(user == null){
+      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => LoginScreen()), (route) => false);
+    } else {
+      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => BottomNavBarScreen()), (route) => false);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
