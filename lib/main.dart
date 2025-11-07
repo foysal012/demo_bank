@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'firebase_options.dart';
 import 'presentation/screen/bottom_nav_bar/bottom_nav_bar_screen.dart';
 import 'presentation/screen/introduction/introduction_screen.dart';
+import 'presentation/screen/language_screen.dart';
 
 // ⬇️ Top-level background handler (class-এর বাইরে)
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
@@ -40,8 +41,9 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       // home: SplashScreen(),
-      // home: BottomNavBarScreen(),
-      home: IntroductionScreen(),
+      home: BottomNavBarScreen(),
+      // home: IntroductionScreen(),
+      // home: LanguageScreen()
     );
   }
 }

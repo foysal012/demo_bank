@@ -128,7 +128,7 @@ class CustomMasterCard extends StatelessWidget {
 
               Column(
                 children: [
-                  Image.asset('asset/images/master_card.png', height: 36, width: 36),
+                  Image.asset('assets/images/master_card.png', height: 36, width: 36),
                   Text('Mastercard',
                       style: TextStyle(
                           fontSize: 18,

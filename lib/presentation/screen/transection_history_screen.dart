@@ -14,18 +14,18 @@ class TransectionHistoryScreen extends StatefulWidget {
 class _TransectionHistoryScreenState extends State<TransectionHistoryScreen> {
 
   List<PaymentModel> paymentList = [
-    PaymentModel(imgIcon: 'asset/images/apple.jpeg', title: 'Apple Store', subTitle: 'Entertainment', amount: '300.0'),
-    PaymentModel(imgIcon: 'asset/images/spotify.png', title: 'Spotify', subTitle: 'Music', amount: '250.0'),
-    PaymentModel(imgIcon: 'asset/images/cart.jpeg', title: 'Grocery', subTitle: 'Shopping', amount: '400.0'),
-    PaymentModel(imgIcon: 'asset/images/apple.jpeg', title: 'Apple Store', subTitle: 'Entertainment', amount: '300.0'),
-    PaymentModel(imgIcon: 'asset/images/spotify.png', title: 'Spotify', subTitle: 'Music', amount: '250.0'),
-    PaymentModel(imgIcon: 'asset/images/cart.jpeg', title: 'Grocery', subTitle: 'Shopping', amount: '400.0'),
-    PaymentModel(imgIcon: 'asset/images/apple.jpeg', title: 'Apple Store', subTitle: 'Entertainment', amount: '300.0'),
-    PaymentModel(imgIcon: 'asset/images/spotify.png', title: 'Spotify', subTitle: 'Music', amount: '250.0'),
-    PaymentModel(imgIcon: 'asset/images/cart.jpeg', title: 'Grocery', subTitle: 'Shopping', amount: '400.0'),
-    PaymentModel(imgIcon: 'asset/images/apple.jpeg', title: 'Apple Store', subTitle: 'Entertainment', amount: '300.0'),
-    PaymentModel(imgIcon: 'asset/images/spotify.png', title: 'Spotify', subTitle: 'Music', amount: '250.0'),
-    PaymentModel(imgIcon: 'asset/images/cart.jpeg', title: 'Grocery', subTitle: 'Shopping', amount: '400.0'),
+    PaymentModel(imgIcon: 'assets/images/apple.jpeg', title: 'Apple Store', subTitle: 'Entertainment', amount: '300.0'),
+    PaymentModel(imgIcon: 'assets/images/spotify.png', title: 'Spotify', subTitle: 'Music', amount: '250.0'),
+    PaymentModel(imgIcon: 'assets/images/cart.jpeg', title: 'Grocery', subTitle: 'Shopping', amount: '400.0'),
+    PaymentModel(imgIcon: 'assets/images/apple.jpeg', title: 'Apple Store', subTitle: 'Entertainment', amount: '300.0'),
+    PaymentModel(imgIcon: 'assets/images/spotify.png', title: 'Spotify', subTitle: 'Music', amount: '250.0'),
+    PaymentModel(imgIcon: 'assets/images/cart.jpeg', title: 'Grocery', subTitle: 'Shopping', amount: '400.0'),
+    PaymentModel(imgIcon: 'assets/images/apple.jpeg', title: 'Apple Store', subTitle: 'Entertainment', amount: '300.0'),
+    PaymentModel(imgIcon: 'assets/images/spotify.png', title: 'Spotify', subTitle: 'Music', amount: '250.0'),
+    PaymentModel(imgIcon: 'assets/images/cart.jpeg', title: 'Grocery', subTitle: 'Shopping', amount: '400.0'),
+    PaymentModel(imgIcon: 'assets/images/apple.jpeg', title: 'Apple Store', subTitle: 'Entertainment', amount: '300.0'),
+    PaymentModel(imgIcon: 'assets/images/spotify.png', title: 'Spotify', subTitle: 'Music', amount: '250.0'),
+    PaymentModel(imgIcon: 'assets/images/cart.jpeg', title: 'Grocery', subTitle: 'Shopping', amount: '400.0'),
   ];
 
   final searchTextController = TextEditingController();

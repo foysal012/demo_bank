@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../resources/app_style.dart';
 
 class IntroductionPage3 extends StatelessWidget {
   const IntroductionPage3({super.key});
@@ -7,7 +8,31 @@ class IntroductionPage3 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.teal,
+        padding: EdgeInsets.symmetric(horizontal: 40.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset('assets/images/intro3.jpeg'),
+            AppStyles.appGap(10.0),
+
+            Text('Paying for Everything is Easy and Convenient',
+              style: TextStyle(
+                  fontSize: 26,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black
+              ),
+            ),
+            AppStyles.appGap(10.0),
+
+            Text('Built-in Fingerprint, face recognition and more, keeping you completely safe',
+              style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.normal,
+                  color: Colors.black38
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
