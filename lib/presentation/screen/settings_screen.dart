@@ -3,8 +3,10 @@ import 'package:demo_bank/resources/app_style.dart';
 import 'package:flutter/material.dart';
 
 import '../widget/custom_profile_tile_widget.dart';
+import 'biometric_screen.dart';
 import 'change_password_screen.dart';
 import 'contract_us_screen.dart';
+import 'language_screen.dart';
 import 'my_profile_screen.dart';
 import 'privacy_policy_screen.dart';
 
@@ -66,7 +68,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
             CustomProfileTileWidget(
               onTap: (){
-
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => LanguageScreen()));
               },
               title: 'Language',
             ),
@@ -124,7 +126,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
             CustomProfileTileWidget(
               onTap: (){
-
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => BiometricScreen()));
               },
               title: 'Biometrics',
             ),

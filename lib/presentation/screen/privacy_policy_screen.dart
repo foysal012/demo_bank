@@ -11,6 +11,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
           actionsPadding: EdgeInsets.only(right: 10.0),
+          scrolledUnderElevation: 0,
           leadingWidth: 40,
           leading: GestureDetector(
             onTap: () {

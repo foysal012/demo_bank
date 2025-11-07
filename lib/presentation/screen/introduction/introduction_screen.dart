@@ -2,6 +2,7 @@ import 'package:demo_bank/presentation/screen/bottom_nav_bar/bottom_nav_bar_scre
 import 'package:demo_bank/presentation/screen/introduction/introduction_page1.dart';
 import 'package:demo_bank/presentation/screen/introduction/introduction_page2.dart';
 import 'package:demo_bank/presentation/screen/introduction/introduction_page3.dart';
+import 'package:demo_bank/resources/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -50,7 +51,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white
+                      color: AppColors.primaryColor
                     ),
                   ),
                 ),
@@ -83,7 +84,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                     style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white
+                        color: AppColors.primaryColor
                     ),
                   ),
                 ) :
@@ -98,7 +99,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white
+                      color: AppColors.primaryColor
                     ),
                   ),
                 ),
