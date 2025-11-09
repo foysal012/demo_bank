@@ -1,5 +1,8 @@
 import 'package:demo_bank/presentation/widget/custom_primary_button.dart';
+import 'package:demo_bank/provider/profile/all_card_provider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../resources/app_color.dart';
 import '../../resources/app_style.dart';
 import '../widget/custom_master_card.dart';
@@ -13,8 +16,16 @@ class BankAndCreditCardScreen extends StatefulWidget {
 }
 
 class _BankAndCreditCardScreenState extends State<BankAndCreditCardScreen> {
+
+  @override
+  void initState() {
+    super.initState();
+    Provider.of<AllCardProvider>(context, listen: false).getAllCard();
+  }
+
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<AllCardProvider>(context);
     return Scaffold(
       appBar: AppBar(
           actionsPadding: EdgeInsets.only(right: 10.0),
@@ -43,19 +54,39 @@ class _BankAndCreditCardScreenState extends State<BankAndCreditCardScreen> {
           )
       ),
 
-      body: Container(
+      body: provider.cardItemList.isEmpty?Center(child: CupertinoActivityIndicator(radius: 15.0, color: AppColors.primaryColor)) : Container(
         padding: EdgeInsets.symmetric(
           horizontal: 10.0,
           vertical: 10.0,
         ),
-        child: Column(
-          children: [
-           CustomMasterCard(),
-           AppStyles.appGap(10.0),
-
-           CustomMasterCard(),
-           AppStyles.appGap(10.0),
-          ],
+        child: SingleChildScrollView(
+          physics: AlwaysScrollableScrollPhysics(),
+          child: RefreshIndicator(
+            onRefresh: () => provider.onRefreshScreen(),
+            child: Column(
+              children: [
+                ListView.builder(
+                    shrinkWrap: true,
+                    reverse: false,
+                    itemCount: provider.cardItemList.length,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemBuilder: (context, index) {
+                      final cardInfo = provider.cardItemList[index];
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: 10.0),
+                        child: CustomMasterCard(
+                          name: cardInfo.name??'',
+                          type: cardInfo.type??'',
+                          expiryDate: cardInfo.expiry??'',
+                          cvv: cardInfo.cvv??'',
+                          number: cardInfo.number??'',
+                        ),
+                      );
+                    },
+                ),
+              ],
+            ),
+          ),
         ),
       ),
 

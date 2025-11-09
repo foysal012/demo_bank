@@ -4,10 +4,12 @@ import 'package:demo_bank/services/notification_services.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 import 'presentation/screen/bottom_nav_bar/bottom_nav_bar_screen.dart';
 import 'presentation/screen/introduction/introduction_screen.dart';
 import 'presentation/screen/language_screen.dart';
+import 'provider/profile/all_card_provider.dart';
 
 // ⬇️ Top-level background handler (class-এর বাইরে)
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
@@ -36,17 +38,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
-      // home: BottomNavBarScreen(),
-      // home: LoginScreen(),
-      // home: IntroductionScreen(),
-      // home: LanguageScreen()
+    return MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (context) => AllCardProvider()),
+        ],
+        child: MaterialApp(
+          title: 'Flutter Demo',
+          theme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          ),
+          debugShowCheckedModeBanner: false,
+          home: SplashScreen(),
+          // home: BottomNavBarScreen(),
+          // home: LoginScreen(),
+          // home: IntroductionScreen(),
+          // home: LanguageScreen()
+        ),
     );
   }
 }
