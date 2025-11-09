@@ -1,11 +1,23 @@
 import 'dart:math';
+import 'package:demo_bank/resources/app_image.dart';
 import 'package:flutter/material.dart';
 import '../../resources/app_style.dart';
 
 class CustomMasterCard extends StatelessWidget {
   const CustomMasterCard({
     super.key,
+    this.number = '4562658921453658',
+    this.type = 'Master Card',
+    this.name = 'AR jonson',
+    this.cvv = '6986',
+    this.expiryDate = '24/2000'
   });
+
+  final String number;
+  final String type;
+  final String name;
+  final String cvv;
+  final String expiryDate;
 
   @override
   Widget build(BuildContext context) {
@@ -33,45 +45,53 @@ class CustomMasterCard extends StatelessWidget {
           ),
           AppStyles.appGap(10.0),
 
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('4562',
-                  style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white
-                  )
-              ),
-
-              Text('1122',
-                  style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white
-                  )
-              ),
-
-              Text('4595',
-                  style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white
-                  )
-              ),
-
-              Text('7852',
-                  style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white
-                  )
-              ),
-            ],
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //   children: [
+          //     Text('4562',
+          //         style: TextStyle(
+          //             fontSize: 25,
+          //             fontWeight: FontWeight.bold,
+          //             color: Colors.white
+          //         )
+          //     ),
+          //
+          //     Text('1122',
+          //         style: TextStyle(
+          //             fontSize: 25,
+          //             fontWeight: FontWeight.bold,
+          //             color: Colors.white
+          //         )
+          //     ),
+          //
+          //     Text('4595',
+          //         style: TextStyle(
+          //             fontSize: 25,
+          //             fontWeight: FontWeight.bold,
+          //             color: Colors.white
+          //         )
+          //     ),
+          //
+          //     Text('7852',
+          //         style: TextStyle(
+          //             fontSize: 25,
+          //             fontWeight: FontWeight.bold,
+          //             color: Colors.white
+          //         )
+          //     ),
+          //   ],
+          // ),
+          Text(number,
+              style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  letterSpacing: 5
+              )
           ),
           AppStyles.appGap(10.0),
 
-          Text('AR jonson',
+          Text(name,
               style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -87,14 +107,14 @@ class CustomMasterCard extends StatelessWidget {
                 children: [
                   Column(
                     children: [
-                      Text('Entry Date',
+                      Text('Expiry Date',
                           style: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.bold,
                               color: Colors.white38
                           )
                       ),
-                      Text('24/2000',
+                      Text(expiryDate,
                           style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
@@ -114,7 +134,7 @@ class CustomMasterCard extends StatelessWidget {
                               color: Colors.white38
                           )
                       ),
-                      Text('6986',
+                      Text(cvv,
                           style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
@@ -128,8 +148,13 @@ class CustomMasterCard extends StatelessWidget {
 
               Column(
                 children: [
-                  Image.asset('assets/images/master_card.png', height: 36, width: 36),
-                  Text('Mastercard',
+                  Image.asset(
+                      // 'assets/images/master_card.png',
+                      type == 'JCB'?AppImage.jcb : type == 'VISA'? AppImage.visa : type == 'MasterCard'? AppImage.mastercard: AppImage.americanExpress,
+                      height: 36,
+                      width: 36
+                  ),
+                  Text(type,
                       style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
