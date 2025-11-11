@@ -6,7 +6,6 @@ import 'package:demo_bank/resources/app_style.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -36,7 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
           password: password
       );
 
-     debugPrint("Output: ${response}");
+     debugPrint("Output: $response");
 
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Successfully Login')));
 
@@ -50,7 +49,7 @@ class _LoginScreenState extends State<LoginScreen> {
       } else if (e.code == 'wrong-password') {
         message = 'Wrong password provided.';
       }
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('$message')));
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
     } catch(e){
       debugPrint('Exception: ${e.toString()}');
     } finally{
