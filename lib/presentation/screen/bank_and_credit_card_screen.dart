@@ -51,21 +51,50 @@ class _BankAndCreditCardScreenState extends State<BankAndCreditCardScreen> {
                 fontWeight: FontWeight.bold,
                 color: AppColors.appBlack
             ),
-          )
+          ),
+
+          actions: [
+            PopupMenuButton(
+                itemBuilder: (context) {
+                  return [
+                    PopupMenuItem(
+                        value: 'JCB',
+                        child: Text('JCB')),
+                    PopupMenuItem(
+                        value: 'Visa',
+                        child: Text('Visa')),
+                    PopupMenuItem(
+                        value: 'MasterCard',
+                        child: Text('Master Card')),
+                    PopupMenuItem(
+                        value: 'AmericanExpress',
+                        child: Text('American Express'))
+                  ];
+                },
+              onSelected: (value) {
+                provider.getAllCard(cardType: value);
+                debugPrint('Output: ${value}');
+              },
+
+            )
+          ],
+
       ),
 
-      body: provider.cardItemList.isEmpty?Center(child: CupertinoActivityIndicator(radius: 15.0, color: AppColors.primaryColor)) : Container(
-        padding: EdgeInsets.symmetric(
-          horizontal: 10.0,
-          vertical: 10.0,
-        ),
-        child: SingleChildScrollView(
-          physics: AlwaysScrollableScrollPhysics(),
-          child: RefreshIndicator(
-            onRefresh: () => provider.onRefreshScreen(),
-            child: Column(
-              children: [
-                ListView.builder(
+      body: Consumer<AllCardProvider>(
+          builder: (context, provider, child) {
+        return provider.cardItemList.isEmpty?Center(child: CupertinoActivityIndicator(radius: 15.0, color: AppColors.primaryColor)) : Container(
+          padding: EdgeInsets.symmetric(
+            horizontal: 10.0,
+            vertical: 10.0,
+          ),
+          child: SingleChildScrollView(
+            physics: AlwaysScrollableScrollPhysics(),
+            child: RefreshIndicator(
+              onRefresh: () => provider.onRefreshScreen(),
+              child: Column(
+                children: [
+                  ListView.builder(
                     shrinkWrap: true,
                     reverse: false,
                     itemCount: provider.cardItemList.length,
@@ -83,12 +112,13 @@ class _BankAndCreditCardScreenState extends State<BankAndCreditCardScreen> {
                         ),
                       );
                     },
-                ),
-              ],
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
-      ),
+        );
+      }),
 
       bottomNavigationBar: SafeArea(
           child: Padding(

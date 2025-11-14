@@ -7,7 +7,7 @@ class CustomMasterCard extends StatelessWidget {
   const CustomMasterCard({
     super.key,
     this.number = '4562658921453658',
-    this.type = 'Master Card',
+    this.type = 'MasterCard',
     this.name = 'AR jonson',
     this.cvv = '6986',
     this.expiryDate = '24/2000'
