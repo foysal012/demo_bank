@@ -10,11 +10,11 @@ class AllCardProvider with ChangeNotifier{
   bool _isLoading = false;
   bool get isLoading => _isLoading;
 
-   Future<void> getAllCard() async{
+   Future<void> getAllCard({String? cardType}) async{
      _isLoading = true;
      try{
        _cardItemList.clear();
-       var responseData = await AllCardRepositories.getAllCard();
+       var responseData = await AllCardRepositories.getAllCard(cardName: cardType??'Visa');
        _cardItemList.addAll(responseData);
        notifyListeners();
      } catch(e){
