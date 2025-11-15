@@ -27,22 +27,15 @@ class _MyCardScreenState extends State<MyCardScreen> {
 
       appBar: AppBar(
         actionsPadding: EdgeInsets.only(right: 10.0),
-        leadingWidth: 40,
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 10.0),
-          child: CircleAvatar(
-            radius: 20.0,
-            backgroundColor: Colors.black26,
-            child: Icon(Icons.arrow_back_ios_new),
-          ),
-        ),
+        backgroundColor: AppColors.primaryColor,
+        leading: Icon(Icons.arrow_back_ios_new, color: Colors.white),
 
         centerTitle: true,
         title: Text('My Cards',
           style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              color: AppColors.appBlack
+              color: Colors.white
           ),
         ),
 
@@ -50,13 +43,13 @@ class _MyCardScreenState extends State<MyCardScreen> {
           CircleAvatar(
             radius: 20.0,
             backgroundColor: Colors.black26,
-            child: Icon(Icons.add),
+            child: Icon(Icons.add, color: Colors.white),
           ),
         ],
       ),
 
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 10.0),
+        padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
