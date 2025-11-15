@@ -34,7 +34,7 @@ class _SignupScreenState extends State<SignupScreen> {
           password: password,
       );
 
-      debugPrint("Output: ${response}");
+      debugPrint("Output: $response");
 
       await FirebaseFirestore.instance.collection('users').doc(response.user!.uid).set({
         'uid': response.user!.uid,
@@ -56,7 +56,7 @@ class _SignupScreenState extends State<SignupScreen> {
       } else if (e.code == 'wrong-password') {
         message = 'Wrong password provided.';
       }
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('$message')));
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
     } catch(e){
       debugPrint('Exception: ${e.toString()}');
     } finally{

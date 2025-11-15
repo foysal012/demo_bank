@@ -12,7 +12,7 @@ class AllCardRepositories{
       debugPrint('Url: ${AppUrl.allCard}type=$cardName&no-of-cards=$cardNumber');
       if (response.statusCode == 200) {
         final returnResponse = jsonDecode(response.body);
-        debugPrint('Output1: ${returnResponse}');
+        debugPrint('Output1: $returnResponse');
 
         return List<AllCardModel>.from(returnResponse.map((data) => AllCardModel.fromJson(data)));
       } else {

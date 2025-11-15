@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../resources/app_color.dart';
-import '../../resources/app_style.dart';
 import '../widget/custom_master_card.dart';
 import 'add_new_card_screen.dart';
 
