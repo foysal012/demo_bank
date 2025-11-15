@@ -26,22 +26,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
       appBar: AppBar(
         actionsPadding: EdgeInsets.only(right: 10.0),
-        leadingWidth: 40,
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 10.0),
-          child: CircleAvatar(
-            radius: 20.0,
-            backgroundColor: Colors.black26,
-            child: Icon(Icons.arrow_back_ios_new),
-          ),
-        ),
+        backgroundColor: AppColors.primaryColor,
+        leading: Icon(Icons.arrow_back_ios_new, color: Colors.white),
 
         centerTitle: true,
         title: Text('Settings',
           style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
-            color: AppColors.appBlack
+            color: Colors.white
           ),
         ),
 
@@ -54,7 +47,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             child: CircleAvatar(
               radius: 20.0,
               backgroundColor: Colors.black26,
-              child: Icon(Icons.logout),
+              child: Icon(Icons.logout, color: Colors.red),
             ),
           ),
         ],
