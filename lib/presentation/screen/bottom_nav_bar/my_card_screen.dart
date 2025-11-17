@@ -1,8 +1,8 @@
 import 'package:demo_bank/model/payment_model.dart';
 import 'package:demo_bank/resources/app_style.dart';
 import 'package:flutter/material.dart';
-import '../../resources/app_color.dart';
-import '../widget/custom_master_card.dart';
+import '../../../resources/app_color.dart';
+import '../../widget/custom_master_card.dart';
 
 class MyCardScreen extends StatefulWidget {
   const MyCardScreen({super.key});

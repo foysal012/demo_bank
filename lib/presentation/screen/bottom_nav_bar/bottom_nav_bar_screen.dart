@@ -1,7 +1,7 @@
 import 'package:demo_bank/presentation/screen/home_screen.dart';
-import 'package:demo_bank/presentation/screen/my_card_screen.dart';
-import 'package:demo_bank/presentation/screen/settings_screen.dart';
-import 'package:demo_bank/presentation/screen/statistics_screen.dart';
+import 'package:demo_bank/presentation/screen/bottom_nav_bar/my_card_screen.dart';
+import 'package:demo_bank/presentation/screen/bottom_nav_bar/settings_screen.dart';
+import 'package:demo_bank/presentation/screen/bottom_nav_bar/statistics_screen.dart';
 import 'package:demo_bank/resources/app_color.dart';
 import 'package:flutter/material.dart';
 

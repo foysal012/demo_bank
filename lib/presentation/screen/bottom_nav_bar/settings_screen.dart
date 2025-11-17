@@ -3,17 +3,16 @@ import 'package:demo_bank/resources/app_color.dart';
 import 'package:demo_bank/resources/app_style.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
-import '../widget/custom_profile_tile_widget.dart';
-import 'admob/banner_add_widget.dart';
-import 'admob/intertential_add_widget.dart';
-import 'admob/reward_ad_screen.dart';
-import 'biometric_screen.dart';
-import 'change_password_screen.dart';
-import 'contract_us_screen.dart';
-import 'language_screen.dart';
-import 'my_profile_screen.dart';
-import 'privacy_policy_screen.dart';
+import '../../widget/custom_profile_tile_widget.dart';
+import '../biometric_screen.dart';
+import '../settings/admob/banner_add_widget.dart';
+import '../settings/admob/intertential_add_widget.dart';
+import '../settings/admob/reward_ad_screen.dart';
+import '../settings/change_password_screen.dart';
+import '../contract_us_screen.dart';
+import '../settings/language_screen.dart';
+import '../settings/my_profile_screen.dart';
+import '../settings/privacy_policy_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});

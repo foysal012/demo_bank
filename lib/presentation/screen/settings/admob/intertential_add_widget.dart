@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-
-import '../../../services/ad_helper.dart';
+import '../../../../resources/app_color.dart';
+import '../../../../services/ad_helper.dart';
 
 class IntertentialAddWidget extends StatefulWidget {
   const IntertentialAddWidget({super.key});
@@ -48,7 +48,20 @@ class _IntertentialAddWidgetState extends State<IntertentialAddWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Banner Add'),
+        backgroundColor: AppColors.primaryColor,
+        leading: GestureDetector(
+            onTap: () => Navigator.pop(context),
+            child: Icon(Icons.arrow_back_ios_new, color: Colors.white
+            )
+        ),
+
+        title: Text('Intertential Add',
+          style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Colors.white
+          ),
+        ),
         centerTitle: true,
       ),
 

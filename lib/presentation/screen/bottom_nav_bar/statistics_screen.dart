@@ -1,8 +1,8 @@
 import 'package:demo_bank/resources/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-import '../../model/payment_model.dart';
-import '../../resources/app_color.dart';
+import '../../../model/payment_model.dart';
+import '../../../resources/app_color.dart';
 
 class StatisticsScreen extends StatefulWidget {
   const StatisticsScreen({super.key});
