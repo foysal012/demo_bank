@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 
 class AllCardRepositories{
 
- static Future<List<AllCardModel>> getAllCard({String cardName='JCB', int cardNumber = 20}) async {
+ static Future<List<AllCardModel>> getAllCard({String cardName='JCB', int cardNumber = 5}) async {
       final response = await http.get(Uri.parse(AppUrl.allCard));
       debugPrint('Url: ${AppUrl.allCard}type=$cardName&no-of-cards=$cardNumber');
       if (response.statusCode == 200) {

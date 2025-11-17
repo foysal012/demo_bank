@@ -67,7 +67,7 @@ class _BankAndCreditCardScreenState extends State<BankAndCreditCardScreen> {
                         value: 'MasterCard',
                         child: Text('Master Card')),
                     PopupMenuItem(
-                        value: 'AmericanExpress',
+                        value: 'American%20Express',
                         child: Text('American Express'))
                   ];
                 },
