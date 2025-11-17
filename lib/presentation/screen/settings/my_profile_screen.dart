@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../resources/app_color.dart';
-import 'bank_and_credit_card_screen.dart';
-import 'edit_my_profile.dart';
-import 'payment_preference_screen.dart';
+import '../../../resources/app_color.dart';
+import '../bank_and_credit_card_screen.dart';
+import '../edit_my_profile.dart';
+import '../payment_preference_screen.dart';
 
 class MyProfileScreen extends StatefulWidget {
   const MyProfileScreen({super.key});
@@ -18,19 +18,11 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
     return Scaffold(
       appBar: AppBar(
           actionsPadding: EdgeInsets.only(right: 10.0),
-          leadingWidth: 40,
+          backgroundColor: AppColors.primaryColor,
           leading: GestureDetector(
-            onTap: () {
-              Navigator.of(context).pop();
-            },
-            child: Padding(
-              padding: const EdgeInsets.only(left: 10.0),
-              child: CircleAvatar(
-                radius: 20.0,
-                backgroundColor: Colors.black26,
-                child: Icon(Icons.arrow_back_ios_new),
-              ),
-            ),
+              onTap: () => Navigator.pop(context),
+              child: Icon(Icons.arrow_back_ios_new, color: Colors.white
+              )
           ),
 
           centerTitle: true,
@@ -38,7 +30,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
             style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: AppColors.appBlack
+                color: Colors.white
             ),
           ),
 
@@ -50,7 +42,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
               child: CircleAvatar(
                 radius: 20.0,
                 backgroundColor: Colors.black26,
-                child: Icon(Icons.person_outline_rounded),
+                child: Icon(Icons.person_outline_rounded, color: Colors.white),
               ),
             ),
           ]

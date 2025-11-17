@@ -42,19 +42,11 @@ class _PaymentPreferenceScreenState extends State<PaymentPreferenceScreen> {
     return Scaffold(
       appBar: AppBar(
           actionsPadding: EdgeInsets.only(right: 10.0),
-          leadingWidth: 40,
+          backgroundColor: AppColors.primaryColor,
           leading: GestureDetector(
-            onTap: () {
-              Navigator.of(context).pop();
-            },
-            child: Padding(
-              padding: const EdgeInsets.only(left: 10.0),
-              child: CircleAvatar(
-                radius: 20.0,
-                backgroundColor: Colors.black26,
-                child: Icon(Icons.arrow_back_ios_new),
-              ),
-            ),
+              onTap: () => Navigator.pop(context),
+              child: Icon(Icons.arrow_back_ios_new, color: Colors.white
+              )
           ),
 
           centerTitle: true,
@@ -62,7 +54,7 @@ class _PaymentPreferenceScreenState extends State<PaymentPreferenceScreen> {
             style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: AppColors.appBlack
+                color: Colors.white
             ),
           )
       ),

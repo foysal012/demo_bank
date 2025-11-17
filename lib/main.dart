@@ -24,7 +24,7 @@ void main() async{
 
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
-  MobileAds.instance.initialize();
+  // MobileAds.instance.initialize();
   final notificationServices = NotificationServices();
   notificationServices.initFCM();
 

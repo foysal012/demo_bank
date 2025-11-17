@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import '../../../services/ad_helper.dart';
+import '../../../../resources/app_color.dart';
+import '../../../../services/ad_helper.dart';
 
 class RewardAdScreen extends StatefulWidget {
   const RewardAdScreen({super.key});
@@ -45,7 +46,20 @@ class _RewardAdScreenState extends State<RewardAdScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Reward Ad Screen"),
+        backgroundColor: AppColors.primaryColor,
+        leading: GestureDetector(
+            onTap: () => Navigator.pop(context),
+            child: Icon(Icons.arrow_back_ios_new, color: Colors.white
+            )
+        ),
+
+        title: Text("Reward Ad Screen",
+          style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Colors.white
+          )
+        ),
       ),
 
       body: Container(
