@@ -1,10 +1,11 @@
-import 'package:demo_bank/presentation/screen/splash_screen.dart';
 import 'package:demo_bank/services/notification_services.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
+import 'presentation/screen/splash_screen.dart';
 import 'provider/profile/all_card_provider.dart';
 
 // ⬇️ Top-level background handler (class-এর বাইরে)
@@ -23,6 +24,7 @@ void main() async{
 
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
+  MobileAds.instance.initialize();
   final notificationServices = NotificationServices();
   notificationServices.initFCM();
 
@@ -45,10 +47,7 @@ class MyApp extends StatelessWidget {
           ),
           debugShowCheckedModeBanner: false,
           home: SplashScreen(),
-          // home: BottomNavBarScreen(),
-          // home: LoginScreen(),
-          // home: IntroductionScreen(),
-          // home: LanguageScreen()
+          // home: BannerAddWidget(),
         ),
     );
   }
