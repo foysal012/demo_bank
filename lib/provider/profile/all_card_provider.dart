@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 
 class AllCardProvider with ChangeNotifier{
 
-  List<AllCardModel> _cardItemList = [];
+  final List<AllCardModel> _cardItemList = [];
   List<AllCardModel> get cardItemList => _cardItemList;
 
   bool _isLoading = false;
