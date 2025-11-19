@@ -78,7 +78,24 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home Screen'),
+        backgroundColor: AppColors.primaryColor,
+        actionsPadding: EdgeInsets.only(right: 10.0),
+        centerTitle: true,
+        title: Text('Home Screen',
+          style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Colors.white
+          )
+        ),
+
+          actions: [
+            CircleAvatar(
+              radius: 20.0,
+              backgroundColor: Colors.black26,
+              child: Icon(Icons.notification_important_rounded, color: Colors.white,),
+            ),
+          ]
       ),
 
       body: Container(

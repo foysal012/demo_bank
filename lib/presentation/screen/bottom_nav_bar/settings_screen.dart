@@ -29,7 +29,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       appBar: AppBar(
         actionsPadding: EdgeInsets.only(right: 10.0),
         backgroundColor: AppColors.primaryColor,
-        leading: Icon(Icons.arrow_back_ios_new, color: Colors.white),
+        // leading: Icon(Icons.arrow_back_ios_new, color: Colors.white),
 
         centerTitle: true,
         title: Text('Settings',

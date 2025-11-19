@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import '../../../model/payment_model.dart';
 import '../../../resources/app_color.dart';
+import '../transection_history_screen.dart';
 
 class StatisticsScreen extends StatefulWidget {
   const StatisticsScreen({super.key});
@@ -40,7 +41,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
         appBar: AppBar(
           actionsPadding: EdgeInsets.only(right: 10.0),
           backgroundColor: AppColors.primaryColor,
-          leading: Icon(Icons.arrow_back_ios_new, color: Colors.white),
+          // leading: Icon(Icons.arrow_back_ios_new, color: Colors.white),
 
           centerTitle: true,
           title: Text('Statistics',
@@ -108,11 +109,16 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                         color: Colors.black
                     ),
                   ),
-                  Text('Sel All',
-                    style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.lightBlue
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => TransectionHistoryScreen()));
+                    },
+                    child: Text('Sel All',
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.lightBlue
+                      ),
                     ),
                   ),
                 ],
