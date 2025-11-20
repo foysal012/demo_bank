@@ -1,8 +1,8 @@
-import 'package:demo_bank/presentation/screen/bottom_nav_bar/bottom_nav_bar_screen.dart';
-import 'package:demo_bank/presentation/screen/login_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'auth/login_screen.dart';
+import 'bottom_nav_bar/bottom_nav_bar_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

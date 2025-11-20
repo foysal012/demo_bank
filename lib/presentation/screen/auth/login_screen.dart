@@ -1,5 +1,5 @@
 import 'package:demo_bank/presentation/screen/bottom_nav_bar/bottom_nav_bar_screen.dart';
-import 'package:demo_bank/presentation/screen/signup_screen.dart';
+import 'package:demo_bank/presentation/screen/auth/signup_screen.dart';
 import 'package:demo_bank/presentation/widget/custom_text_field.dart';
 import 'package:demo_bank/resources/app_color.dart';
 import 'package:demo_bank/resources/app_style.dart';

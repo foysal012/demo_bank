@@ -1,8 +1,8 @@
-import 'package:demo_bank/presentation/widget/custom_text_field.dart';
 import 'package:flutter/material.dart';
-import '../../model/payment_model.dart';
-import '../../resources/app_color.dart';
-import '../../resources/app_style.dart';
+import '../../../../model/payment_model.dart';
+import '../../../../resources/app_color.dart';
+import '../../../../resources/app_style.dart';
+import '../../../widget/custom_text_field.dart';
 
 class TransectionHistoryScreen extends StatefulWidget {
   const TransectionHistoryScreen({super.key});

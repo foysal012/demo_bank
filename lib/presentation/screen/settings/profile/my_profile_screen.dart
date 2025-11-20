@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-
-import '../../../resources/app_color.dart';
-import '../bank_and_credit_card_screen.dart';
-import '../edit_my_profile.dart';
-import '../payment_preference_screen.dart';
+import '../../../../resources/app_color.dart';
+import 'bank_and_credit_card_screen.dart';
+import 'edit_my_profile.dart';
+import 'payment_preference_screen.dart';
 
 class MyProfileScreen extends StatefulWidget {
   const MyProfileScreen({super.key});

@@ -1,9 +1,9 @@
-import 'package:demo_bank/resources/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import '../../../model/payment_model.dart';
 import '../../../resources/app_color.dart';
-import '../transection_history_screen.dart';
+import '../../../resources/app_style.dart';
+import '../settings/profile/transection_history_screen.dart';
 
 class StatisticsScreen extends StatefulWidget {
   const StatisticsScreen({super.key});
@@ -41,7 +41,6 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
         appBar: AppBar(
           actionsPadding: EdgeInsets.only(right: 10.0),
           backgroundColor: AppColors.primaryColor,
-          // leading: Icon(Icons.arrow_back_ios_new, color: Colors.white),
 
           centerTitle: true,
           title: Text('Statistics',

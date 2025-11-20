@@ -1,8 +1,8 @@
-import 'package:demo_bank/presentation/widget/custom_text_field.dart';
-import 'package:demo_bank/resources/app_style.dart';
 import 'package:flutter/material.dart';
 import '../../../model/language_model.dart';
 import '../../../resources/app_color.dart';
+import '../../../resources/app_style.dart';
+import '../../widget/custom_text_field.dart';
 
 class LanguageScreen extends StatefulWidget {
   const LanguageScreen({super.key});

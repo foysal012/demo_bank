@@ -1,9 +1,9 @@
 import 'package:demo_bank/presentation/widget/custom_primary_button.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import '../../resources/app_color.dart';
-import '../../resources/app_style.dart';
-import '../widget/custom_text_field.dart';
+import '../../../../resources/app_color.dart';
+import '../../../../resources/app_style.dart';
+import '../../../widget/custom_text_field.dart';
 
 class AddNewCardScreen extends StatefulWidget {
   const AddNewCardScreen({super.key});
