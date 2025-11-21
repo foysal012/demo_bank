@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:demo_bank/presentation/screen/login_screen.dart';
+import 'package:demo_bank/presentation/screen/auth/login_screen.dart';
 import 'package:demo_bank/presentation/widget/custom_text_field.dart';
 import 'package:demo_bank/resources/app_color.dart';
 import 'package:demo_bank/resources/app_style.dart';

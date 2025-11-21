@@ -28,7 +28,6 @@ class _MyCardScreenState extends State<MyCardScreen> {
       appBar: AppBar(
         actionsPadding: EdgeInsets.only(right: 10.0),
         backgroundColor: AppColors.primaryColor,
-        // leading: Icon(Icons.arrow_back_ios_new, color: Colors.white),
 
         centerTitle: true,
         title: Text('My Cards',

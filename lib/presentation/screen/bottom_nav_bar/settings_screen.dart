@@ -1,17 +1,17 @@
-import 'package:demo_bank/presentation/screen/login_screen.dart';
 import 'package:demo_bank/resources/app_color.dart';
 import 'package:demo_bank/resources/app_style.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../../widget/custom_profile_tile_widget.dart';
+import '../auth/login_screen.dart';
 import '../biometric_screen.dart';
 import '../settings/admob/banner_add_widget.dart';
 import '../settings/admob/intertential_add_widget.dart';
 import '../settings/admob/reward_ad_screen.dart';
 import '../settings/change_password_screen.dart';
-import '../contract_us_screen.dart';
 import '../settings/language_screen.dart';
-import '../settings/my_profile_screen.dart';
+import '../settings/profile/contract_us_screen.dart';
+import '../settings/profile/my_profile_screen.dart';
 import '../settings/privacy_policy_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -29,7 +29,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
       appBar: AppBar(
         actionsPadding: EdgeInsets.only(right: 10.0),
         backgroundColor: AppColors.primaryColor,
-        // leading: Icon(Icons.arrow_back_ios_new, color: Colors.white),
 
         centerTitle: true,
         title: Text('Settings',

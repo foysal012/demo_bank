@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../resources/app_color.dart';
-import '../../resources/app_style.dart';
-import '../widget/custom_contract_widget.dart';
+import '../../../../resources/app_color.dart';
+import '../../../../resources/app_style.dart';
+import '../../../widget/custom_contract_widget.dart';
 
 class ContractUsScreen extends StatelessWidget {
   const ContractUsScreen({super.key});

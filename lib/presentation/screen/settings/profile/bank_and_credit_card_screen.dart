@@ -1,10 +1,10 @@
-import 'package:demo_bank/presentation/widget/custom_primary_button.dart';
-import 'package:demo_bank/provider/profile/all_card_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../resources/app_color.dart';
-import '../widget/custom_master_card.dart';
+import '../../../../provider/profile/all_card_provider.dart';
+import '../../../../resources/app_color.dart';
+import '../../../widget/custom_master_card.dart';
+import '../../../widget/custom_primary_button.dart';
 import 'add_new_card_screen.dart';
 
 class BankAndCreditCardScreen extends StatefulWidget {

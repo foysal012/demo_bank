@@ -1,8 +1,8 @@
-import 'package:demo_bank/presentation/widget/custom_text_field.dart';
-import 'package:demo_bank/resources/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import '../../resources/app_color.dart';
+import '../../../../resources/app_color.dart';
+import '../../../../resources/app_style.dart';
+import '../../../widget/custom_text_field.dart';
 
 class EditMyProfile extends StatefulWidget {
   const EditMyProfile({super.key});

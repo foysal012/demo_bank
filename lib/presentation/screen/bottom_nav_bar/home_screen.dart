@@ -1,10 +1,10 @@
-import 'package:demo_bank/presentation/screen/transection_history_screen.dart';
 import 'package:flutter/material.dart';
-import '../../model/payment_model.dart';
-import '../../resources/app_color.dart';
-import '../../resources/app_style.dart';
-import '../widget/custom_home_circle_widget.dart';
-import '../widget/custom_master_card.dart';
+import '../../../model/payment_model.dart';
+import '../../../resources/app_color.dart';
+import '../../../resources/app_style.dart';
+import '../../widget/custom_home_circle_widget.dart';
+import '../../widget/custom_master_card.dart';
+import '../settings/profile/transection_history_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
