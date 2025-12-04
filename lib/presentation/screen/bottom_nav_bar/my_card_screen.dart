@@ -28,6 +28,7 @@ class _MyCardScreenState extends State<MyCardScreen> {
       appBar: AppBar(
         actionsPadding: EdgeInsets.only(right: 10.0),
         backgroundColor: AppColors.primaryColor,
+        leading: SizedBox(),
 
         centerTitle: true,
         title: Text('My Cards',
