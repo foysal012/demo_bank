@@ -41,7 +41,8 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
         appBar: AppBar(
           actionsPadding: EdgeInsets.only(right: 10.0),
           backgroundColor: AppColors.primaryColor,
-
+          leading: SizedBox(),
+          
           centerTitle: true,
           title: Text('Statistics',
             style: TextStyle(

@@ -4,6 +4,7 @@ import '../../../resources/app_color.dart';
 import '../../../resources/app_style.dart';
 import '../../widget/custom_home_circle_widget.dart';
 import '../../widget/custom_master_card.dart';
+import '../settings/profile/notification_screen.dart';
 import '../settings/profile/transection_history_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -80,6 +81,8 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: AppColors.primaryColor,
         actionsPadding: EdgeInsets.only(right: 10.0),
+        leading: SizedBox(),
+
         centerTitle: true,
         title: Text('Home Screen',
           style: TextStyle(
@@ -89,11 +92,16 @@ class _HomeScreenState extends State<HomeScreen> {
           )
         ),
 
-          actions: [
-            CircleAvatar(
-              radius: 20.0,
-              backgroundColor: Colors.black26,
-              child: Icon(Icons.notification_important_rounded, color: Colors.white,),
+        actions: [
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => NotificationScreen()));
+              },
+              child: CircleAvatar(
+                radius: 20.0,
+                backgroundColor: Colors.black26,
+                child: Icon(Icons.notification_important_rounded, color: Colors.white,),
+              ),
             ),
           ]
       ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../resources/app_color.dart';
 import 'bank_and_credit_card_screen.dart';
 import 'edit_my_profile.dart';
+import 'notification_screen.dart';
 import 'payment_preference_screen.dart';
 
 class MyProfileScreen extends StatefulWidget {
@@ -65,13 +66,15 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
             ),
             CustomProfileListTile(
               onTap: (){
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => BankAndCreditCardScreen(),));
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => BankAndCreditCardScreen()));
               },
               iconData: Icons.add_card_rounded,
               title: 'Bank & Credit Card',
             ),
             CustomProfileListTile(
-              onTap: (){},
+              onTap: (){
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => NotificationScreen()));
+              },
               iconData: Icons.notifications,
               title: 'Notifications',
             ),
