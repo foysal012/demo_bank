@@ -38,14 +38,43 @@ class _NotificationScreenState extends State<NotificationScreen> {
           child: SingleChildScrollView(
             child: Column(
                 children: [
-                  AppStyles.appGap(50.0),
-
                   ListView.builder(
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
                     itemCount: 10,
                     itemBuilder: (context, index) {
                       return ListTile(
+                        onTap: () {
+                          showDialog(
+                              context: context, 
+                              builder: (context) {
+                                return AlertDialog(
+                                  title: Text('Notification Details'),
+                                  content: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Text(' such as a sound or on-screen icon, that informs a user about something new, like a message, an update, or an alert. It can also refer to a formal announcement or the act of informing someone of something.')
+                                    ],
+                                  ),
+                                  actions: [
+                                    MaterialButton(
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                      child: Text('Cancel',style: TextStyle(fontSize: 14, color: Colors.red, fontWeight: FontWeight.bold)),
+                                    ),
+
+                                    MaterialButton(
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                      child: Text('Ok',style: TextStyle(fontSize: 14, color: Colors.green, fontWeight: FontWeight.bold)),
+                                    ),
+                                  ],
+                                );
+                              },
+                          );
+                        },
                         leading: Container(
                           height: 100,
                           width: 100,
