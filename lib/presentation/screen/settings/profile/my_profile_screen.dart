@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../resources/app_color.dart';
 import 'bank_and_credit_card_screen.dart';
 import 'edit_my_profile.dart';
+import 'message_center_screen.dart';
 import 'notification_screen.dart';
 import 'payment_preference_screen.dart';
 
@@ -58,28 +59,23 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
               title: 'Personal Information',
             ),
             CustomProfileListTile(
-              onTap: (){
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => PaymentPreferenceScreen()));
-              },
+              onTap: () =>
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => PaymentPreferenceScreen())),
               iconData: Icons.payment,
               title: 'Payment Preferences',
             ),
             CustomProfileListTile(
-              onTap: (){
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => BankAndCreditCardScreen()));
-              },
+              onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => BankAndCreditCardScreen())),
               iconData: Icons.add_card_rounded,
               title: 'Bank & Credit Card',
             ),
             CustomProfileListTile(
-              onTap: (){
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => NotificationScreen()));
-              },
+              onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => NotificationScreen())),
               iconData: Icons.notifications,
               title: 'Notifications',
             ),
             CustomProfileListTile(
-              onTap: (){},
+              onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => MessageCenterScreen())),
               iconData: Icons.message,
               title: 'Message Center',
             ),

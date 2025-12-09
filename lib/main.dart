@@ -1,3 +1,4 @@
+import 'package:demo_bank/provider/profile/contract_us_provider.dart';
 import 'package:demo_bank/services/notification_services.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -39,6 +40,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (context) => AllCardProvider()),
+          ChangeNotifierProvider(create: (context) => ContractUsProvider()),
         ],
         child: MaterialApp(
           title: 'Flutter Demo',
