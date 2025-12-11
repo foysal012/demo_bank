@@ -43,7 +43,10 @@ class _MessageCenterScreenState extends State<MessageCenterScreen> {
             child: Row(children: [
               Expanded(
                 flex: 7,
-                  child: CustomTextField(textController: messageTextController)
+                  child: CustomTextField(
+                      textController: messageTextController,
+                      hintText: 'Write me text'
+                  )
               ),
               AppStyles.appGap(10.0),
 

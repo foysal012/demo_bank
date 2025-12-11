@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../resources/app_color.dart';
+import 'address_screen.dart';
 import 'bank_and_credit_card_screen.dart';
 import 'edit_my_profile.dart';
 import 'message_center_screen.dart';
@@ -80,7 +81,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
               title: 'Message Center',
             ),
             CustomProfileListTile(
-              onTap: (){},
+              onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => AddressScreen())),
               iconData: Icons.location_on,
               title: 'Address',
             ),
